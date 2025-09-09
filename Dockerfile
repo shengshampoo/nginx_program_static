@@ -13,7 +13,7 @@ RUN apk add --no-cache \
  g++ git libuv-static libuv-dev pcre-dev pcre-static pcre2-dev pcre2-static \
  libmaxminddb-static libmaxminddb-dev luajit-dev luajit libunistring-static \ 
  libunistring-dev cmake ninja perl libatomic_ops-static libatomic_ops-dev \
- autoconf automake libtool libxslt-static libxslt-dev patch aria2
+ autoconf automake libtool libxslt-static libxslt-dev patch aria2 bash
 
 # required to compile ModSecurity as static lib
 RUN apk add --no-cache \
