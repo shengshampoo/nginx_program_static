@@ -1,6 +1,0 @@
-#! /bin/bash
-
-WORKSPACE=/tmp/workspace
-mkdir -p $WORKSPACE
-
-cd $WORKSPACE
