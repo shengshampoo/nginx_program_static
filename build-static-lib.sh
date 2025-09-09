@@ -1,4 +1,7 @@
+
 #! /bin/bash
+
+set -e
 
 WORKSPACE=/tmp/workspace
 mkdir -p $WORKSPACE
