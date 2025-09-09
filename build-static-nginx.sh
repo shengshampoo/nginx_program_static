@@ -5,6 +5,7 @@ set -e
 
 WORKSPACE=/tmp/workspace2
 mkdir -p $WORKSPACE
+mkdir -p /work/artifact
 
 # nginx
 cd $WORKSPACE
@@ -29,3 +30,8 @@ cd nginx
 
 make
 make install
+
+cd /usr/local
+tar vcJf ./nginxmm.tar.xz nginxmm
+
+mv ./nginxmm.tar.xz /work/artifact/
