@@ -25,6 +25,8 @@ RUN apk add --no-cache \
 RUN aria2c -x2 -R https://raw.githubusercontent.com/shengshampoo/nginx_program_static/refs/heads/main/build-ngx-addon.sh && \
 chmod +x build-ngx-addon.sh && ./build-ngx-addon.sh
 
-
 RUN aria2c -x2 -R https://raw.githubusercontent.com/shengshampoo/nginx_program_static/refs/heads/main/build-static-lib.sh && \
 chmod +x build-static-lib.sh && ./build-static-lib.sh
+
+RUN aria2c -x2 -R https://raw.githubusercontent.com/shengshampoo/nginx_program_static/refs/heads/main/build-static-nginx.sh && \
+chmod +x build-static-nginx.sh && ./build-static-nginx.sh
