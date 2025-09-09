@@ -22,9 +22,9 @@ RUN apk add --no-cache \
  libidn2-dev nghttp2-static nghttp2-dev \
  libpsl-static libpsl-dev libssh2-dev libssh2-static
 
-RUN aria2c -x2 -R https://raw.githubusercontent.com/shengshampoo/nginx_program_static-rust_program_static/refs/heads/main/build-ngx-addon.sh && \
+RUN aria2c -x2 -R https://raw.githubusercontent.com/shengshampoo/nginx_program_static/refs/heads/main/build-ngx-addon.sh && \
  chmod +x build-ngx-addon.sh && ./build-ngx-addon.sh
 
 
-RUN aria2c -x2 -R https://raw.githubusercontent.com/shengshampoo/nginx_program_static-rust_program_static/refs/heads/main/build-static-lib.sh && \
+RUN aria2c -x2 -R https://raw.githubusercontent.com/shengshampoo/nginx_program_static/refs/heads/main/build-static-lib.sh && \
  chmod +x build-static-lib.sh && ./build-static-lib.sh
