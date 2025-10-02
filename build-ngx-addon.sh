@@ -16,7 +16,7 @@ git clone https://github.com/vozlt/nginx-module-vts
 git clone https://github.com/owasp-modsecurity/ModSecurity-nginx
 git clone https://github.com/nginx/njs
 
-curl -sL https://github.com/openssl/openssl/releases/download/openssl-3.5.3/openssl-3.5.3.tar.gz | tar vx --gzip
+curl -sL https://github.com/openssl/openssl/releases/download/openssl-3.6.0/openssl-3.6.0.tar.gz | tar x --gzip
 
 cd ./ModSecurity-nginx
 sed -i '51s@no@yes@' ./config
