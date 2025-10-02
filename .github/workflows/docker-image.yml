@@ -1,4 +1,4 @@
-name: Docker Image CI - X86_64/AARCH64 for Alpine/Alpaquita Linux
+name: Docker Image CI - X86_64/AARCH64 for Alpine Linux
 
 on:
   push:
@@ -14,7 +14,6 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, ubuntu-24.04-arm]
-        dockeros: [alpine, alpaquita]
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -30,5 +29,5 @@ jobs:
     - name: Upload static program
       uses: actions/upload-artifact@v4
       with:
-        name: nginxmm-${{ matrix.dockeros }}-${{ matrix.os }}
+        name: nginxmm-${{ matrix.os }}
         path: ./*.tar.xz
