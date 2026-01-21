@@ -1,12 +1,17 @@
-name: Docker Image CI - X86_64/AARCH64 for Alpine Linux
+name: Docker Image CI - X86_64/AARCH64 for Alpine Linux to continuous tags
 
 on:
   push:
     branches: [ "main" ]
+    tags:
+      - 'continuous'
   pull_request:
     branches: [ "main" ]
   # run it manually
-  workflow_dispatch:
+  workflow_dispatch:    
+  schedule:
+    - cron: "43 2 * * *"  
+    - cron: "32 14 * * *"  
 
 jobs:
 
@@ -26,8 +31,11 @@ jobs:
         docker run --cidfile=builder.cid builder true
         docker cp "$(cat builder.cid):work/artifact/." .
 
-    - name: Upload static program
-      uses: actions/upload-artifact@v4
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v2
       with:
-        name: nginxmm-${{ matrix.os }}
-        path: ./*.tar.xz
+        file: ./nginxmm.tar.xz
+        asset_name: nginxmm-${{ runner.os }}-${{ runner.arch }}.tar.xz
+        tag: refs/tags/continuous
+        overwrite: true
+        body: "fully static nginx binary using alpine linux docker containers"
