@@ -20,7 +20,7 @@ cd nginx
   --with-http_realip_module --with-pcre --with-pcre-jit \
   --with-openssl-opt=enable-ktls --with-libatomic \
   --with-cc-opt='-O3 -Wno-error -DNGX_QUIC_OPENSSL_API=1' \
-  --with-ld-opt='-static -lgcov -lstdc++ -lmodsecurity -lyajl -lxml2 -llmdb -lfuzzy -L/usr/lib/lua5.4 -llua -lcurl -lcares -lnghttp2 -lidn2 -lpsl -lssh2 -lunistring -lbrotlienc -lbrotlidec -lbrotlicommon -lxslt' \
+  --with-ld-opt='-static -lgcov -lstdc++ -lmodsecurity -lyajl -lxml2 -llmdb -lfuzzy -L/usr/lib/lua5.4 -llua -lcurl -lssl -lcrypto -lcares -lnghttp2 -lidn2 -lpsl -lssh2 -lunistring -lbrotlienc -lbrotlidec -lbrotlicommon -lxslt' \
   --with-openssl=/$(find / -maxdepth 1 -type d -name "openssl-*" -exec basename {} \;) --with-http_v3_module \
   --with-http_addition_module --add-module=/ngx_brotli \
   --add-module=/zstd-nginx-module --add-module=/ngx_http_geoip2_module \
@@ -44,7 +44,7 @@ cd freenginx
   --with-http_realip_module --with-pcre --with-pcre-jit \
   --with-openssl-opt=enable-ktls --with-libatomic \
   --with-cc-opt='-O3 -Wno-error -DNGX_QUIC_OPENSSL_API=1' \
-  --with-ld-opt='-static -lgcov -lstdc++ -lmodsecurity -lyajl -lxml2 -llmdb -lfuzzy -L/usr/lib/lua5.4 -llua -lcurl -lcares -lnghttp2 -lidn2 -lpsl -lssh2 -lunistring -lbrotlienc -lbrotlidec -lbrotlicommon -lxslt' \
+  --with-ld-opt='-static -lgcov -lstdc++ -lmodsecurity -lyajl -lxml2 -llmdb -lfuzzy -L/usr/lib/lua5.4 -llua -lcurl -lssl -lcrypto -lcares -lnghttp2 -lidn2 -lpsl -lssh2 -lunistring -lbrotlienc -lbrotlidec -lbrotlicommon -lxslt' \
   --with-openssl=/$(find / -maxdepth 1 -type d -name "openssl-*" -exec basename {} \;) --with-http_v3_module \
   --with-http_addition_module --add-module=/ngx_brotli \
   --add-module=/zstd-nginx-module --add-module=/ngx_http_geoip2_module \
