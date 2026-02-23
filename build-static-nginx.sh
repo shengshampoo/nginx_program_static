@@ -31,7 +31,31 @@ cd nginx
 make
 make install
 
+# freenginx
+cd $WORKSPACE
+hg clone http://freenginx.org/hg/nginx freenginx 
+cd freenginx
+./auto/configure --prefix=/usr/local/freenginxmm \
+  --with-poll_module --with-file-aio --with-threads \
+  --with-http_ssl_module --with-http_v2_module \
+  --with-http_dav_module --with-http_mp4_module \
+  --with-http_gzip_static_module --with-stream --with-stream_realip_module \
+  --with-stream_ssl_module --with-stream_ssl_preread_module \
+  --with-http_realip_module --with-pcre --with-pcre-jit \
+  --with-openssl-opt=enable-ktls --with-libatomic \
+  --with-cc-opt='-O3 -Wno-error -DNGX_QUIC_OPENSSL_API=1' \
+  --with-ld-opt='-static -lgcov -lstdc++ -lmodsecurity -lyajl -lxml2 -llmdb -lfuzzy -L/usr/lib/lua5.4 -llua -lcurl -lcares -lnghttp2 -lidn2 -lpsl -lssh2 -lunistring -lbrotlienc -lbrotlidec -lbrotlicommon -lxslt' \
+  --with-openssl=/$(find / -maxdepth 1 -type d -name "openssl-*" -exec basename {} \;) --with-http_v3_module \
+  --with-http_addition_module --add-module=/ngx_brotli \
+  --add-module=/zstd-nginx-module --add-module=/ngx_http_geoip2_module \
+  --add-module=/nginx-vod-module --add-module=/nginx-http-flv-module \
+  --add-module=/nginx-module-vts --add-module=/ModSecurity-nginx \
+  --add-module=/njs/nginx --with-http_gzip_static_module
+
+
 cd /usr/local
 tar vcJf ./nginxmm.tar.xz nginxmm
+tar vcJf ./freenginxmm.tar.xz freenginxmm
 
-mv ./nginxmm.tar.xz /work/artifact/
+
+mv ./nginxmm.tar.xz ./freenginxmm.tar.xz /work/artifact/
