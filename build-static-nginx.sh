@@ -4,6 +4,7 @@
 set -e
 
 WORKSPACE=/tmp/workspace2
+WORKSPACE3=/tmp/workspace3
 mkdir -p $WORKSPACE
 mkdir -p /work/artifact
 
@@ -32,9 +33,9 @@ make
 make install
 
 # freenginx
-cd $WORKSPACE
-hg clone http://freenginx.org/hg/nginx freenginx 
-cd freenginx
+cd $WORKSPACE3
+hg clone http://freenginx.org/hg/nginx 
+cd nginx
 ./auto/configure --prefix=/usr/local/freenginxmm \
   --with-poll_module --with-file-aio --with-threads \
   --with-http_ssl_module --with-http_v2_module \
