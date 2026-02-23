@@ -36,7 +36,7 @@ make install
 cd $WORKSPACE3
 hg clone http://freenginx.org/hg/nginx 
 cd nginx
-./auto/configure --prefix=/usr/local/freenginxmm \
+./auto/configure --prefix=/usr/local/nginxfmm \
   --with-poll_module --with-file-aio --with-threads \
   --with-http_ssl_module --with-http_v2_module \
   --with-http_dav_module --with-http_mp4_module \
@@ -83,7 +83,7 @@ make install
 
 cd /usr/local
 tar vcJf ./nginxmm.tar.xz nginxmm
-tar vcJf ./freenginxmm.tar.xz freenginxmm
+tar vcJf ./nginxfmm.tar.xz nginxfmm
 tar vcJf ./angiemm.tar.xz angiemm
 
-mv ./[afn]*mm.tar.xz /work/artifact/
+mv ./[an]*mm.tar.xz /work/artifact/
