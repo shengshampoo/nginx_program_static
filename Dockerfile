@@ -6,14 +6,14 @@ RUN sed -i 's@dl-cdn.alpinelinux.org@ftp.halifax.rwth-aachen.de@g' /etc/apk/repo
 RUN apk update
 RUN apk upgrade
 
-# required nginx 
+# required nginx, freenginx
 RUN apk add --no-cache \
  gcc make linux-headers musl-dev zlib-dev zlib-static \
  python3-dev curl zstd-static zstd-dev openssl-dev openssl-libs-static \
  g++ git libuv-static libuv-dev pcre-dev pcre-static pcre2-dev pcre2-static \
  libmaxminddb-static libmaxminddb-dev luajit-dev luajit libunistring-static \ 
  libunistring-dev cmake ninja perl libatomic_ops-static libatomic_ops-dev \
- autoconf automake libtool libxslt-static libxslt-dev patch aria2 bash
+ autoconf automake libtool libxslt-static libxslt-dev patch aria2 bash mercurial
 
 # required to compile ModSecurity as static lib
 RUN apk add --no-cache \
