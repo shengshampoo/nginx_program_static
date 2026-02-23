@@ -16,10 +16,10 @@ git clone https://github.com/vozlt/nginx-module-vts
 git clone https://github.com/owasp-modsecurity/ModSecurity-nginx
 git clone https://github.com/nginx/njs
 
-git clone --branch feature/ech https://github.com/openssl/openssl.git openssl-ech
-cd openssl-ech
-git submodule update --init --recursive
-#curl -sL https://github.com/openssl/openssl/releases/download/openssl-3.6.0/openssl-3.6.0.tar.gz | tar x --gzip
+#git clone --branch feature/ech https://github.com/openssl/openssl.git openssl-ech
+#cd openssl-ech
+#git submodule update --init --recursive
+curl -sL https://github.com/openssl/openssl/releases/download/openssl-3.6.1/openssl-3.6.1.tar.gz | tar x --gzip
 
 cd /
 cd ./ModSecurity-nginx
