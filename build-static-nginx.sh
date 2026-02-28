@@ -38,7 +38,7 @@ make install
 cd $WORKSPACE
 git clone https://git.angie.software/web-server/angie 
 cd angie
-./auto/configure --prefix=/usr/local/angiemm \
+./configure --prefix=/usr/local/angiemm \
   --with-poll_module --with-file-aio --with-threads \
   --with-http_ssl_module --with-http_v2_module \
   --with-http_dav_module --with-http_mp4_module \
