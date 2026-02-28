@@ -59,10 +59,10 @@ make install
 
 # angie
 # https://en.angie.software/angie/docs/development/
-cd $WORKSPACE
-git clone https://git.angie.software/web-server/angie 
-cd angie
-./auto/configure --prefix=/usr/local/angiemm \
+#cd $WORKSPACE
+#git clone https://git.angie.software/web-server/angie 
+#cd angie
+#./auto/configure --prefix=/usr/local/angiemm \
   --with-poll_module --with-file-aio --with-threads \
   --with-http_ssl_module --with-http_v2_module \
   --with-http_dav_module --with-http_mp4_module \
@@ -79,12 +79,12 @@ cd angie
   --add-module=/nginx-module-vts --add-module=/ModSecurity-nginx \
   --add-module=/njs/nginx --with-http_gzip_static_module
 
-make
-make install
+#make
+#make install
 
 cd /usr/local
 tar vcJf ./nginxmm.tar.xz nginxmm
 tar vcJf ./nginxfmm.tar.xz nginxfmm
-tar vcJf ./angiemm.tar.xz angiemm
+#tar vcJf ./angiemm.tar.xz angiemm
 
-mv ./[an]*mm.tar.xz /work/artifact/
+mv ./[n]*mm.tar.xz /work/artifact/
