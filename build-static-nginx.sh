@@ -6,6 +6,7 @@ set -e
 WORKSPACE=/tmp/workspace2
 WORKSPACE3=/tmp/workspace3
 mkdir -p $WORKSPACE
+mkdir -p $WORKSPACE3
 mkdir -p /work/artifact
 
 # nginx
