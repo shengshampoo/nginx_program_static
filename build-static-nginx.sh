@@ -35,7 +35,8 @@ make install
 
 # freenginx
 cd $WORKSPACE3
-hg clone http://freenginx.org/hg/nginx 
+# hg clone http://freenginx.org/hg/nginx 
+git clone https://github.com/freenginx/nginx
 cd nginx
 ./auto/configure --prefix=/usr/local/nginxfmm \
   --with-poll_module --with-file-aio --with-threads \
