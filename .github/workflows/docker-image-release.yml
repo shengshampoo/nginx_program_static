@@ -39,3 +39,12 @@ jobs:
         tag: refs/tags/continuous
         overwrite: true
         body: "fully static nginx binary using alpine linux docker containers"
+
+    - name: Upload binaries to release
+      uses: svenstaro/upload-release-action@v2
+      with:
+        file: ./angiemm.tar.xz
+        asset_name: angiemm-${{ runner.os }}-${{ runner.arch }}.tar.xz
+        tag: refs/tags/continuous
+        overwrite: true
+        body: "fully static nginx binary using alpine linux docker containers"
