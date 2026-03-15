@@ -19,8 +19,7 @@ git clone https://github.com/nginx/njs
 #git clone --branch feature/ech https://github.com/openssl/openssl.git openssl-ech
 #cd openssl-ech
 #git submodule update --init --recursive
-#curl -sL https://github.com/openssl/openssl/releases/download/openssl-3.6.1/openssl-3.6.1.tar.gz | tar x --gzip
-curl -sL https://github.com/openssl/openssl/releases/download/openssl-4.0.0-alpha1/openssl-4.0.0-alpha1.tar.gz | tar x --gzip
+curl -sL https://github.com/openssl/openssl/releases/download/openssl-3.6.1/openssl-3.6.1.tar.gz | tar x --gzip
 
 cd /
 cd ./ModSecurity-nginx
