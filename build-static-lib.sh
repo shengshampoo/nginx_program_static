@@ -78,5 +78,5 @@ git submodule init
 git submodule update
 ./build.sh
 LDFLAGS="-static --static -no-pie -s -lcrypt" ./configure --prefix=/usr --with-yajl --with-lua --with-pcre2 --with-ssdeep --with-lmdb
-make
+make CFLAGS="-std=gnu17" CCFLAGS="-std=gnu17" CXXFLAGS="-std=gnu17"
 make install
