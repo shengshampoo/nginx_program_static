@@ -14,13 +14,13 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-24.04-arm]
-        dockeros: [termux]
+        dockeros: [alpine_termux]
     runs-on: ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run:  docker build -f Dockerfile_${{ matrix.dockeros }} .
+      run:  docker build -f Dockerfile-${{ matrix.dockeros }} .
 
     - name: build static program with alpine linux docker 
       run: |
