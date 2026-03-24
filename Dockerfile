@@ -31,6 +31,7 @@ COPY build-static-lib.sh build-static-lib.sh
 RUN chmod +x ./build-static-lib.sh
 RUN bash ./build-static-lib.sh
 
+ENV XZ_OPT=-e9
 COPY build-static-nginx.sh build-static-nginx.sh
 RUN chmod +x ./build-static-nginx.sh
 RUN bash ./build-static-nginx.sh
