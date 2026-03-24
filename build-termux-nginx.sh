@@ -7,14 +7,15 @@ WORKSPACE=/tmp/workspace2
 mkdir -p $WORKSPACE
 mkdir -p /work/artifact
 
-export CC="/android-ndk-r29/toolchains/llvm/prebuilt/linux-$(uname -m)/bin/aarch64-linux-android23-clang"
-export CXX="/android-ndk-r29/toolchains/llvm/prebuilt/linux-$(uname -m)/bin/aarch64-linux-android23-clang++"
-export AR="/android-ndk-r29/toolchains/llvm/prebuilt/linux-$(uname -m)/bin/llvm-ar"
+
+export CC="/android-ndk-r29/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android23-clang"
+export CXX="/android-ndk-r29/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android23-clang++"
+export AR="/android-ndk-r29/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-ar"
 export AS=$CC
-export LD="/android-ndk-r29/toolchains/llvm/prebuilt/linux-$(uname -m)/bin/ld"
-export RANLIB="/android-ndk-r29/toolchains/llvm/prebuilt/linux-$(uname -m)/bin/llvm-ranlib"
-export STRIP="/android-ndk-r29/toolchains/llvm/prebuilt/linux-$(uname -m)/bin/llvm-strip"
-export PATH=/android-ndk-r29/toolchains/llvm/prebuilt/linux-$(uname -m)/bin/:$PATH
+export LD="/android-ndk-r29/toolchains/llvm/prebuilt/linux-x86_64/bin/ld"
+export RANLIB="/android-ndk-r29/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-ranlib"
+export STRIP="/android-ndk-r29/toolchains/llvm/prebuilt/linux-x86_64/bin/llvm-strip"
+export PATH=/android-ndk-r29/toolchains/llvm/prebuilt/linux-x86_64/bin/:$PATH
 export ANDROID_NDK_HOME="/android-ndk-r29"
 export ANDROID_NDK="/android-ndk-r29"
 export ANDROID_NDK_ROOT="/android-ndk-r29"
@@ -31,7 +32,7 @@ cd nginx
   --with-stream_ssl_module --with-stream_ssl_preread_module \
   --with-http_realip_module --with-pcre --with-pcre-jit \
   --with-openssl-opt=enable-ktls --with-libatomic \
-  --with-cc="/android-ndk-r29/toolchains/llvm/prebuilt/linux-$(uname -m)/bin/aarch64-linux-android23-clang" \
+  --with-cc="/android-ndk-r29/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android23-clang" \
   --with-cc-opt='-std=gnu17 -O3 -fno-pie -no-pie -Wno-error -DNGX_QUIC_OPENSSL_API=1' \
   --with-ld-opt='-static -fno-pie -no-pie -lgcov -lstdc++ -lmodsecurity -lyajl -lxml2 -llmdb -lfuzzy -L/usr/lib/lua5.4 -llua -lcurl -lssl -lcrypto -lcares -lnghttp2 -lidn2 -lpsl -lssh2 -lunistring -lbrotlienc -lbrotlidec -lbrotlicommon -lxslt' \
   --with-openssl=/$(find / -maxdepth 1 -type d -name "openssl-*" -exec basename {} \;) --with-http_v3_module \
@@ -57,7 +58,7 @@ cd angie
   --with-stream_ssl_module --with-stream_ssl_preread_module \
   --with-http_realip_module --with-pcre --with-pcre-jit \
   --with-openssl-opt=enable-ktls --with-libatomic \
-  --with-cc="/android-ndk-r29/toolchains/llvm/prebuilt/linux-$(uname -m)/bin/aarch64-linux-android23-clang" \  
+  --with-cc="/android-ndk-r29/toolchains/llvm/prebuilt/linux-x86_64/bin/aarch64-linux-android23-clang" \  
   --with-cc-opt='-std=gnu17 -O3 -fno-pie -no-pie -Wno-error -DNGX_QUIC_OPENSSL_API=1' \
   --with-ld-opt='-static -fno-pie -no-pie -lgcov -lstdc++ -lmodsecurity -lyajl -lxml2 -llmdb -lfuzzy -L/usr/lib/lua5.4 -llua -lcurl -lssl -lcrypto -lcares -lnghttp2 -lidn2 -lpsl -lssh2 -lunistring -lbrotlienc -lbrotlidec -lbrotlicommon -lxslt' \
   --with-openssl=/$(find / -maxdepth 1 -type d -name "openssl-*" -exec basename {} \;) --with-http_v3_module \
