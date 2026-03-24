@@ -44,7 +44,7 @@ make install
 
 # libxml
 cd $WORKSPACE
-aa=2.13.8 
+aa=2.13.9 
 curl -sL https://gitlab.gnome.org/GNOME/libxml2/-/archive/v$aa/libxml2-v$aa.tar.bz2 | tar xv --bzip2
 cd libxml2-v$aa
 sh autogen.sh
@@ -66,7 +66,8 @@ cd $WORKSPACE
 git clone https://github.com/curl/curl.git
 cd curl
 autoreconf -fi
-CFLAGS=-static LDFLAGS="-static --static -no-pie -s -lnghttp2 -lidn2 -lssh2 -lpsl -lunistring -lbrotlienc -lbrotlidec -lbrotlicommon" ./configure --prefix=/usr --with-openssl --disable-shared --with-libidn2 --disable-docs --with-libpsl --with-libssh2 --enable-ares
+CFLAGS=-static LDFLAGS="-static --static -no-pie -s -lnghttp2 -lidn2 -lssh2 -lpsl -lunistring -lbrotlienc -lbrotlidec -lbrotlicommon" \
+./configure --prefix=/usr --with-openssl --disable-shared --with-libidn2 --disable-docs --with-libpsl --with-libssh2 --enable-ares
 make
 make install
 
