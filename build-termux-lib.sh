@@ -56,17 +56,17 @@ cd $WORKSPACE
 git clone https://github.com/ssdeep-project/ssdeep.git
 cd ssdeep
 ./bootstrap
-LDFLAGS="-static --static -no-pie -s" ./configure --prefix=/usr
+LDFLAGS="-static --static -no-pie -s" ./configure --prefix=/usr --host=aarch64-linux-android --target=aarch64-linux-android  --with-sysroot=/android-ndk-r29/toolchains/llvm/prebuilt/linux-x86_64/sysroot
 make
 make install
 
 # libxml
 cd $WORKSPACE
 aa=2.13.8 
-curl -sL https://gitlab.gnome.org/GNOME/libxml2/-/archive/v$aa/libxml2-v$aa.tar.bz2 | tar xv --bzip2
+curl -sL https://gitlab.gnome.org/GNOME/libxml2/-/archive/v$aa/libxml2-v$aa.tar.bz2 | tar x --bzip2
 cd libxml2-v$aa
 sh autogen.sh
-LDFLAGS="-static --static -no-pie -s" ./configure --prefix=/usr --enable-static --disable-shared
+LDFLAGS="-static --static -no-pie -s" ./configure --prefix=/usr --enable-static --disable-shared --host=aarch64-linux-android --target=aarch64-linux-android  --with-sysroot=/android-ndk-r29/toolchains/llvm/prebuilt/linux-x86_64/sysroot
 make
 make install
 
@@ -75,7 +75,7 @@ cd $WORKSPACE
 git clone https://github.com/c-ares/c-ares.git
 cd c-ares
 ./buildconf
-LDFLAGS="-static --static -no-pie -s" ./configure  --prefix=/usr --disable-shared --disable-libgcc
+LDFLAGS="-static --static -no-pie -s" ./configure  --prefix=/usr --disable-shared --disable-libgcc --host=aarch64-linux-android --target=aarch64-linux-android  --with-sysroot=/android-ndk-r29/toolchains/llvm/prebuilt/linux-x86_64/sysroot
 make
 make install
 
@@ -84,7 +84,9 @@ cd $WORKSPACE
 git clone https://github.com/curl/curl.git
 cd curl
 autoreconf -fi
-CFLAGS=-static LDFLAGS="-static --static -no-pie -s -lnghttp2 -lidn2 -lssh2 -lpsl -lunistring -lbrotlienc -lbrotlidec -lbrotlicommon" ./configure --prefix=/usr --with-openssl --disable-shared --with-libidn2 --disable-docs --with-libpsl --with-libssh2 --enable-ares
+CFLAGS=-static LDFLAGS="-static --static -no-pie -s -lnghttp2 -lidn2 -lssh2 -lpsl -lunistring -lbrotlienc -lbrotlidec -lbrotlicommon" \
+./configure --prefix=/usr --with-openssl --disable-shared --with-libidn2 --disable-docs --with-libpsl --with-libssh2 --enable-ares \
+ --host=aarch64-linux-android --target=aarch64-linux-android  --with-sysroot=/android-ndk-r29/toolchains/llvm/prebuilt/linux-x86_64/sysroot
 make
 make install
 
@@ -95,6 +97,7 @@ cd ModSecurity
 git submodule init
 git submodule update
 ./build.sh
-LDFLAGS="-static --static -no-pie -s -lcrypt" ./configure --prefix=/usr --with-yajl --with-lua --with-pcre2 --with-ssdeep --with-lmdb
+LDFLAGS="-static --static -no-pie -s -lcrypt" ./configure --prefix=/usr --with-yajl --with-lua --with-pcre2 --with-ssdeep --with-lmdb \
+--host=aarch64-linux-android --target=aarch64-linux-android  --with-sysroot=/android-ndk-r29/toolchains/llvm/prebuilt/linux-x86_64/sysroot
 make
 make install
