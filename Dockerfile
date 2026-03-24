@@ -17,7 +17,7 @@ RUN apk add --no-cache \
 
 # required to compile ModSecurity as static lib
 RUN apk add --no-cache \
- ssdeep ssdeep-static yajl-dev yajl-static yajl \
+ yajl-dev yajl-static yajl \
  lua5.4-dev xz-static xz-dev libidn2-static \
  libidn2-dev nghttp2-static nghttp2-dev \
  libpsl-static libpsl-dev libssh2-dev libssh2-static
