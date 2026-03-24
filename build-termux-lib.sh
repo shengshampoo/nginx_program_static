@@ -62,7 +62,7 @@ make install
 
 # libxml
 cd $WORKSPACE
-aa=2.13.8 
+aa=2.13.9 
 curl -sL https://gitlab.gnome.org/GNOME/libxml2/-/archive/v$aa/libxml2-v$aa.tar.bz2 | tar x --bzip2
 cd libxml2-v$aa
 sh autogen.sh
