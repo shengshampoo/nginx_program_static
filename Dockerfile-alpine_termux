@@ -27,9 +27,9 @@ COPY build-ngx-addon.sh build-ngx-addon.sh
 RUN chmod +x ./build-ngx-addon.sh
 RUN bash ./build-ngx-addon.sh
 
-COPY build-termux-lib.sh build-termux-lib.sh
-RUN chmod +x ./build-termux-lib.sh
-RUN bash ./build-termux-lib.sh
+COPY build-static-lib.sh build-static-lib.sh
+RUN chmod +x ./build-static-lib.sh
+RUN bash ./build-static-lib.sh
 
 ENV XZ_OPT=-e9
 COPY build-termux-nginx.sh build-termux-nginx.sh
