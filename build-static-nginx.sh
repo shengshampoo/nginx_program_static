@@ -121,3 +121,4 @@ cd /data/data/com.termux/files/usr
 tar vcJf ./nginxtx.tar.xz nginxtx
 tar vcJf ./angietx.tar.xz angietx
 
+mv ./[an]*tx.tar.xz /work/artifact/
