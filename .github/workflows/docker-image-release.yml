@@ -62,7 +62,7 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       with:
         file: ./angietx.tar.xz
-        asset_name: angiemm-${{ runner.os }}-${{ runner.arch }}.tar.xz
+        asset_name: angietx-${{ runner.os }}-${{ runner.arch }}.tar.xz
         tag: refs/tags/continuous
         overwrite: true
         body: "fully static nginx binary using alpine linux docker containers"
