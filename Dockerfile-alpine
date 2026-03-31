@@ -1,0 +1,37 @@
+FROM alpine:latest
+
+# https://mirrors.alpinelinux.org/
+RUN sed -i 's@dl-cdn.alpinelinux.org@ftp.halifax.rwth-aachen.de@g' /etc/apk/repositories
+
+RUN apk update
+RUN apk upgrade
+
+# required nginx, angie
+RUN apk add --no-cache \
+ gcc make linux-headers musl-dev zlib-dev zlib-static \
+ python3-dev curl zstd-static zstd-dev openssl-dev openssl-libs-static \
+ g++ git libuv-static libuv-dev pcre-dev pcre-static pcre2-dev pcre2-static \
+ libmaxminddb-static libmaxminddb-dev luajit-dev luajit libunistring-static \ 
+ libunistring-dev cmake ninja perl libatomic_ops-static libatomic_ops-dev \
+ autoconf automake libtool libxslt-static libxslt-dev patch bash tar
+
+# required to compile ModSecurity as static lib
+RUN apk add --no-cache \
+ yajl-dev yajl-static yajl \
+ lua5.4-dev xz-static xz-dev libidn2-static \
+ libidn2-dev nghttp2-static nghttp2-dev \
+ libpsl-static libpsl-dev libssh2-dev libssh2-static
+
+
+COPY build-ngx-addon.sh build-ngx-addon.sh
+RUN chmod +x ./build-ngx-addon.sh
+RUN bash ./build-ngx-addon.sh
+
+COPY build-static-lib.sh build-static-lib.sh
+RUN chmod +x ./build-static-lib.sh
+RUN bash ./build-static-lib.sh
+
+ENV XZ_OPT=-e9
+COPY build-static-nginx.sh build-static-nginx.sh
+RUN chmod +x ./build-static-nginx.sh
+RUN bash ./build-static-nginx.sh
