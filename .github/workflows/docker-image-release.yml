@@ -19,12 +19,13 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest, ubuntu-24.04-arm]
+        dockeros: [alpine]
     runs-on: ${{ matrix.os }}
 
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build --tag builder .
+      run: docker build -f Dockerfile-${{ matrix.dockeros }} --tag builder .
 
     - name: build static program with alpine linux docker 
       run: |
@@ -35,7 +36,7 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       with:
         file: ./nginxmm.tar.xz
-        asset_name: nginxmm-${{ runner.os }}-${{ runner.arch }}.tar.xz
+        asset_name: nginxmm-${{ matrix.dockeros }}-${{ runner.os }}-${{ runner.arch }}.tar.xz
         tag: refs/tags/continuous
         overwrite: true
         body: "fully static nginx binary using alpine linux docker containers"
@@ -44,7 +45,7 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       with:
         file: ./nginxtx.tar.xz
-        asset_name: nginxtx-${{ runner.os }}-${{ runner.arch }}.tar.xz
+        asset_name: nginxtx-${{ matrix.dockeros }}-${{ runner.os }}-${{ runner.arch }}.tar.xz
         tag: refs/tags/continuous
         overwrite: true
         body: "fully static nginx binary using alpine linux docker containers"
@@ -53,7 +54,7 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       with:
         file: ./angiemm.tar.xz
-        asset_name: angiemm-${{ runner.os }}-${{ runner.arch }}.tar.xz
+        asset_name: angiemm-${{ matrix.dockeros }}-${{ runner.os }}-${{ runner.arch }}.tar.xz
         tag: refs/tags/continuous
         overwrite: true
         body: "fully static nginx binary using alpine linux docker containers"
@@ -62,7 +63,7 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       with:
         file: ./angietx.tar.xz
-        asset_name: angietx-${{ runner.os }}-${{ runner.arch }}.tar.xz
+        asset_name: angietx-${{ matrix.dockeros }}-${{ runner.os }}-${{ runner.arch }}.tar.xz
         tag: refs/tags/continuous
         overwrite: true
         body: "fully static nginx binary using alpine linux docker containers"
