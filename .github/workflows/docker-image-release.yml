@@ -44,7 +44,7 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       with:
         file: ./nginxtx.tar.xz
-        asset_name: nginxtx-Termux-${{ runner.arch }}.tar.xz
+        asset_name: nginxtx-${{ runner.os }}-${{ runner.arch }}.tar.xz
         tag: refs/tags/continuous
         overwrite: true
         body: "fully static nginx binary using alpine linux docker containers"
@@ -62,7 +62,7 @@ jobs:
       uses: svenstaro/upload-release-action@v2
       with:
         file: ./angietx.tar.xz
-        asset_name: angiemm-Termux-${{ runner.arch }}.tar.xz
+        asset_name: angiemm-${{ runner.os }}-${{ runner.arch }}.tar.xz
         tag: refs/tags/continuous
         overwrite: true
         body: "fully static nginx binary using alpine linux docker containers"
