@@ -6,6 +6,16 @@ set -e
 WORKSPACE=/tmp/workspace
 mkdir -p $WORKSPACE
 
+# openssl
+cd $WORKSPACE
+curl -sL https://github.com/openssl/openssl/releases/download/openssl-4.0.0/openssl-4.0.0.tar.gz | tar x --gzip
+cd openssl-4.0.0
+./Configure enable-ktls enable-ec_nistp_64_gcc_128 zlib --prefix=/usr --openssldir=/usr no-shared no-async enable-ktls enable-ech \
+enable-ec_nistp_64_gcc_128 enable-tfo enable-quic zlib enable-zstd
+make
+make install
+
+
 # brotli
 cd $WORKSPACE
 git clone https://github.com/google/brotli.git 
