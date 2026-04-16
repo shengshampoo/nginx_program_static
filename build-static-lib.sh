@@ -88,6 +88,6 @@ cd ModSecurity
 git submodule init
 git submodule update
 ./build.sh
-LDFLAGS="-static --static -no-pie -s -lcrypt" ./configure --prefix=/usr --with-yajl --with-lua --with-pcre2 --with-ssdeep --with-lmdb
+LDFLAGS="-static --static -no-pie -s -lcrypt -lzstd" ./configure --prefix=/usr --with-yajl --with-lua --with-pcre2 --with-ssdeep --with-lmdb
 make
 make install
