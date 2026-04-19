@@ -6,11 +6,13 @@ set -e
 WORKSPACE=/tmp/workspace
 mkdir -p $WORKSPACE
 
+opsslver=4.0.0
+cd / && curl -sL https://github.com/openssl/openssl/releases/download/openssl-$opsslver/openssl-$opsslver.tar.gz | tar x --gzip
 
 # openssl
 cd $WORKSPACE
-curl -sL https://github.com/openssl/openssl/releases/download/openssl-4.0.0/openssl-4.0.0.tar.gz | tar x --gzip
-cd openssl-4.0.0
+curl -sL https://github.com/openssl/openssl/releases/download/openssl-$opsslver/openssl-$opsslver.tar.gz | tar x --gzip
+cd openssl-$opsslver
 ./Configure enable-ktls enable-ec_nistp_64_gcc_128 zlib --prefix=/usr --openssldir=/usr no-shared no-async enable-ktls enable-ech \
 enable-ec_nistp_64_gcc_128 enable-tfo enable-quic zlib
 make && make install
