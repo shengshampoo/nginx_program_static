@@ -10,7 +10,8 @@ cd /ngx_brotli && git submodule update --init
 cd / 
 git clone https://github.com/tokers/zstd-nginx-module
 git clone https://github.com/leev/ngx_http_geoip2_module
-git clone https://github.com/kaltura/nginx-vod-module
+#git clone https://github.com/kaltura/nginx-vod-module
+git clone https://github.com/dio-az/nginx-vod-module
 git clone https://github.com/winshining/nginx-http-flv-module
 git clone https://github.com/vozlt/nginx-module-vts
 git clone https://github.com/owasp-modsecurity/ModSecurity-nginx
