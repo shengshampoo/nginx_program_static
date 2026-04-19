@@ -79,7 +79,7 @@ git clone https://github.com/curl/curl.git
 cd curl
 autoreconf -fi
 CFLAGS=-static LDFLAGS="-static --static -no-pie -s -lnghttp2 -lidn2 -lssh2 -lpsl -lunistring -lbrotlienc -lbrotlidec -lbrotlicommon" \
-./configure --prefix=/usr --with-openssl --disable-shared --with-libidn2 --disable-docs --with-libpsl --with-libssh2 --enable-ares
+./configure --prefix=/usr --with-openssl --disable-shared --with-libidn2 --disable-docs --with-libpsl --with-libssh2 --enable-ares --enable-ech
 make
 make install
 
