@@ -88,7 +88,7 @@ cd $WORKSPACE
 git clone -b v3/master --single-branch https://github.com/SpiderLabs/ModSecurity.git
 cd ModSecurity
 git submodule init
-git submodule update
+git submodule update --init --recursive
 ./build.sh
 LDFLAGS="-static --static -no-pie -s -lcrypt" ./configure --prefix=/usr --with-yajl --with-lua --with-pcre2 --with-ssdeep --with-lmdb
 make
