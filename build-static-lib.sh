@@ -6,7 +6,7 @@ set -e
 WORKSPACE=/tmp/workspace
 mkdir -p $WORKSPACE
 
-opsslver=4.0.1
+opsslver=4.0.2
 cd / && curl -sL https://github.com/openssl/openssl/releases/download/openssl-$opsslver/openssl-$opsslver.tar.gz | tar x --gzip
 
 # openssl
